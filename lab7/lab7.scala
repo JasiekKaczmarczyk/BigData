@@ -99,10 +99,3 @@ drop_data("lab7")
 
 val check=spark.sql(s"SELECT * FROM lab7.actors")
 check.show()
-
-// COMMAND ----------
-
-//Zadanie 4
-//Stwórz projekt w IntelliJ z spakuj do go jar. Uruchom go w IntelliJ.
-//Uruchom w Databricks.
-//Aplikacja powinna wczytać plik tekstowy i wykonać kilka transformacji (np. dodaj kolumnę, zmień wartości kolumny ect).
