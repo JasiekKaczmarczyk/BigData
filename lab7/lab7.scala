@@ -12,16 +12,10 @@ import org.apache.spark.sql.types._
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC //https://www.oreilly.com/library/view/programming-hive/9781449326944/ch08.html
-// MAGIC
 // MAGIC Hive ma ograniczone możliwości indeksowania. Nie ma kluczy w zwykłym sensie relacyjnej bazy danych, ale można utworzyć indeks na kolumnach, aby przyspieszyć niektóre operacje. Dane indeksu dla tabeli są przechowywane w innej tabeli.
 // MAGIC
-// MAGIC Celem indeksowania Hive jest zwiększenie szybkości wyszukiwania zapytań w niektórych kolumnach tabeli. Bez indeksu zapytania z predykatami, takimi jak "WHERE tab1.col1 = 10", ładują całą tabelę lub partycję i przetwarzają wszystkie wiersze. Ale jeśli istnieje indeks dla col1, to tylko część pliku musi zostać załadowana i przetworzona.
+// MAGIC Apache Hive wspieral indeksacje pod katem optymalizacji zapytan do wersji 3.0. Od wersji 3.0 zostala ona usunieta (zrodlo: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Indexing).W celu rozwiazania problemu indeksacji mozna rozwazyc wybor np. SQLite3, Hive jest lepszu do danych nieustruktyrozwanych, konfiguracji, pamieci podrecznej itd.Innym rozwiazaniem jest uzycie plikow .ORC, ktore maja wbudowane indeksy, co pozwala pomijac bloki danych w trakcie operacji odczytu.
 // MAGIC
-// MAGIC Poprawa szybkości zapytań, którą może zapewnić indeks, wiąże się z kosztem dodatkowego przetwarzania w celu utworzenia indeksu i miejsca na dysku do przechowywania indeksu.
-// MAGIC
-// MAGIC Indeksy w Hive, podobnie jak te w relacyjnych bazach danych, muszą być dokładnie ocenione. Utrzymywanie indeksu wymaga dodatkowego miejsca na dysku, a tworzenie indeksu wiąże się z kosztami przetwarzania. Użytkownik musi porównać te koszty z korzyściami, jakie oferują podczas wykonywania zapytań do tabeli. Np.Jeśli długi czas trwania analizy nam nie przeszkadza, ale mamy ograniczoną ilość zasobów/miejsca na dysku nie powinniśmy używać indeksów.
-
 // COMMAND ----------
 
 //Zadanie 2
